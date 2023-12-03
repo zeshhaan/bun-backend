@@ -1,7 +1,18 @@
 import { Elysia } from "elysia";
+import { db } from "../db";
+import { products } from "../db/schema";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const getAllProducts = async () => {
+  return await db.query.products.findMany();
+};
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+const createProduct = async ({ body }) => {
+  return await db.insert(products).values(body);
+};
+
+const app = new Elysia()
+  .get("/products", getAllProducts)
+  .post("/product", createProduct)
+  .listen(3000);
+
+console.log(`💓 Elysia running at ${app.server?.hostname}:${app.server?.port}`);
