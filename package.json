@@ -3,14 +3,14 @@
   "version": "1.0.50",
   "scripts": {
     "dev": "bun run --watch src/index.ts",
-    "db:migrate": "bunx drizzle-kit generate:sqlite",
-    "db:push": "bunx drizzle-kit push:sqlite",
+    "db:migrate": "bunx drizzle-kit generate:pg",
+    "db:push": "bunx drizzle-kit push:pg",
     "db:studio": "bunx drizzle-kit studio"
   },
   "dependencies": {
-    "@libsql/client": "^0.4.0-pre.5",
     "drizzle-orm": "^0.29.1",
-    "elysia": "latest"
+    "elysia": "latest",
+    "postgres": "^3.4.3"
   },
   "devDependencies": {
     "bun-types": "latest",

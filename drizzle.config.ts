@@ -3,10 +3,9 @@ import type { Config } from "drizzle-kit";
 export default {
   schema: "./db/schema.ts",
   out: "./db/migrations",
-  driver: "turso",
+  driver: "pg",
   dbCredentials: {
-    url: process.env.TURSO_DB_URL as string,
-    authToken: process.env.TURSO_DB_AUTH_TOKEN as string,
+    connectionString: process.env.DATABASE_URL,
   },
   verbose: true,
   strict: false,
