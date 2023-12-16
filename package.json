@@ -3,7 +3,7 @@
   "version": "1.0.50",
   "scripts": {
     "dev": "bun run --watch src/index.ts",
-    "build": "bun build src/index.ts --target=bun --minify src/index.ts --outdir=build",
+    "build": "bun build src/index.ts --target=bun src/index.ts --outdir=build",
     "db:migrate": "bunx drizzle-kit generate:pg",
     "db:push": "bunx drizzle-kit push:pg",
     "db:studio": "bunx drizzle-kit studio"
